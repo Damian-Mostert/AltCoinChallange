@@ -9,6 +9,6 @@ const knexDb = Knex({
 		database: process.env.DB_NAME,
 	},
 	pool: { min: 0, max: 5 },
-});
+})
 
-export default knexDb;
+export default knexDb

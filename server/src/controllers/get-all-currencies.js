@@ -3,33 +3,28 @@ import knexDb from "../database/init.js";
 import currencyService from "../services/currency-service.js";
 
 export default async function getAllCurrencies(request,response,next){
+    const {per_page,page} = request.query;
     try{
         const cached = await global.redisClient.get('currencies');
         if(cached){
             console.info(chalk.bgBlueBright(chalk.yellowBright("Getting cache")));
             let data = await knexDb.select("*").from("currencies");
             response.json({
-                currencies:data
+                currencies:data.map(c=>(JSON.parse(c.data)))
             })
         }else{
-            console.info(chalk.bgBlueBright(chalk.yellowBright("Setting cache")));
+            console.info(chalk.bgBlueBright(chalk.yellowBright("Setting cache")))
             const res = await currencyService.getAll();
-            global.redisClient.set('currencies','has_been_fetched',{ex:60});
-            for(let currency of res.data){
+            global.redisClient.set('currencies','has_been_fetched',{ex:60})
+
+            for(let currency of res.data)
                 await knexDb.table("currencies").insert({
                     real_id:currency.id,
-                    rank: currency.rank,
-                    name: currency.name,
-                    symbol: currency.symbol,
-                    slug:currency.slug,
-                    is_active:currency.is_active,
-                    first_historical_data:currency.first_historical_data,
-                    last_historical_data:currency.last_historical_data,
-                    platform_id: currency.platform?.id
-                }).onConflict('real_id').ignore()
-            }
+                    data:currency
+                }).onConflict('real_id').merge(['data'])
+                
             response.json({
-                currencies:res.data
+                currencies:res.data.slice(0, 10)
             })
         }
     }catch(error){

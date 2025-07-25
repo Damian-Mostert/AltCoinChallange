@@ -2,9 +2,9 @@ import express from "express"
 import chalk from 'chalk'
 import cors from "cors"
 import bodyParser from "body-parser"
-import redis from "redis";
+import redis from "redis"
 
-global.redisClient = redis.createClient(process.env.REDIS_PORT ?? 4022);
+global.redisClient = redis.createClient(process.env.REDIS_PORT ?? 4022)
 
 export default async function Boot(routes){
 	await global.redisClient.connect();

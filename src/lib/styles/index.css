@@ -1,6 +1,6 @@
 :root{
-	--bg:rgb(255, 255, 255);
-	--bg-fg:#e7e7e7;
+	--bg:rgb(232, 232, 232);
+	--bg-fg:#ffffff;
 	--fg:#2e2e2e;
 	--accent:#dcdcdc;
 }
@@ -22,6 +22,22 @@ main{
 	display: flex;
 	flex-direction: column;
 }
+
+input,select{
+	border: 1px solid var(--accent);
+	background-color: var(--bg-fg);
+	border-radius: 0.25rem;
+	padding: 0.5rem;
+}
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+*::-webkit-scrollbar { 
+    display: none; 
+}
+
 
 /*Backgrounds*/
 .bg-bg{
@@ -79,7 +95,7 @@ main{
 		--bs-border-color: var(--accent) !important;
 }
 
-/*css loader*/
+/*css loader imported from https://css-loaders.com*/
 .loader {
   height: 15px;
   aspect-ratio: 5;

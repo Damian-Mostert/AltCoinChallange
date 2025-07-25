@@ -26,23 +26,26 @@ async function setupDatabase() {
 				database: dbName,
 			},
 			pool: { min: 0, max: 5 },
-		});
+		})
 
 		const existsCurrencies = await knexDb.schema.hasTable("currencies");
 		if (!existsCurrencies) {
 			await knexDb.schema.createTable("currencies", (table) => {
-				table.increments("id").primary();
-				table.integer("real_id").unique();
-				table.integer("rank");
-				table.string("name", 100).notNullable()
-				table.string("slug", 100).notNullable()
-				table.string("symbol", 20).notNullable()
-				table.integer("is_active")
-				table.string("first_historical_data", 100).notNullable()
-				table.string("last_historical_data", 100).notNullable()
+				table.increments("id").primary()
+				table.integer("real_id").unique()
+				table.json("data").notNullable()
 				table.timestamp("created_at").defaultTo(knexDb.fn.now())
-				table.integer("platform_id").nullable()
-			});
+			})
+		}
+
+        const existsCurrencyData = await knexDb.schema.hasTable("currency_data")
+		if (!existsCurrencyData) {
+			await knexDb.schema.createTable("currency_data", (table) => {
+				table.increments("id").primary();
+				table.string("for_slug",100).unique();
+				table.json("data").notNullable()
+				table.timestamp("created_at").defaultTo(knexDb.fn.now())
+			})
 		}
 
 		console.log("Database and tables created successfully!")

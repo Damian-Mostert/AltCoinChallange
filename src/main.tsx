@@ -11,19 +11,19 @@ import NotFound from './lib/pages/not-found.tsx'
 import Layout from './layout.tsx'
 
 const routerMap:any = {
-  "*":NotFound,
-  "/":Home,
-  "/privacy-policy":PrivacyPolicy,
-  "/terms-and-conditions":TermsAndConditions,
+	"*":NotFound,
+	"/":Home,
+	"/privacy-policy":PrivacyPolicy,
+	"/terms-and-conditions":TermsAndConditions,
 };
 
 createRoot(document.getElementById('root')!).render(<StrictMode>
 	<BrowserRouter>
 	<Routes>
-    {Object.keys(routerMap).map((key)=>{
-      const Component = routerMap[key];
-      return <Route key={key} path={key} element={<Layout><Component/></Layout>}/>
-    })}
+		{Object.keys(routerMap).map((key)=>{
+			const Component = routerMap[key];
+			return <Route key={key} path={key} element={<Layout><Component/></Layout>}/>
+		})}
 	</Routes>
 	</BrowserRouter>
 </StrictMode>)
