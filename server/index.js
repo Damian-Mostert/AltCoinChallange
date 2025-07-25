@@ -1,4 +1,4 @@
-import routes from "./lib/routes/index.js"
-import boot from "./lib/boot.js"
+import routes from "./src/routes/index.js"
+import boot from "./src/boot.js"
 
 boot(routes)

@@ -4,8 +4,15 @@ import currencyService from './lib/api/services/currency-service'
 
 
 type Currency ={
-  name:string,
-  slug:string
+  id: number,
+  rank: number,
+  name: string,
+  symbol: string,
+  slug: string,
+  is_active: number,
+  first_historical_data: string,
+  last_historical_data: string,
+  platform: null
 };
 
 function App() {
@@ -40,8 +47,9 @@ function App() {
             Currency's
           </div>
           <div className='p-2'>
-            {currencies ? currencies.map((currency,key)=>(<div className='' onClick={()=>setCurrency(currency.slug)} key={key}>
-              {currency.name}
+            {currencies ? currencies.map((currency,key)=>(<div className='d-flex w-100 gap-1 pointer' onClick={()=>setCurrency(currency.slug)} key={key}>
+              <div className='w-100'>{currency.name}</div> 
+              <div className='text-uppercase w-100 text-align-right'>{currency.symbol}</div>
             </div>)):<></>}
           </div>
         </div>

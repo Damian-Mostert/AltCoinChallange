@@ -1,6 +1,6 @@
 import { Router } from "express"
-import getAllCurrencies from "./callbacks/get-all-currencies.js"
-import getCurrencyDetails from "./callbacks/get-currency-details.js"
+import getAllCurrencies from "../controllers/get-all-currencies.js"
+import getCurrencyDetails from "../controllers/get-currency-details.js"
 
 const router = Router()
 
