@@ -1,6 +1,9 @@
 .container{
-    padding: 1rem;
+    padding: 2rem;
     background: var(--bg-fg);
     border-bottom:1px solid var(--accent);
     display: flex;
+    position: sticky;
+    top: 0px;
+    left: 0px;
 }

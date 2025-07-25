@@ -2,8 +2,13 @@ import express from "express"
 import chalk from 'chalk'
 import cors from "cors"
 import bodyParser from "body-parser"
+import redis from "redis";
 
-export default function Boot(routes){
+global.redisClient = redis.createClient(process.env.REDIS_PORT ?? 4022);
+
+export default async function Boot(routes){
+	await global.redisClient.connect();
+
 	const port = process.env.SERVER_PORT ?? 4000
 
 	express()
@@ -20,4 +25,5 @@ export default function Boot(routes){
 	.listen(port)
 
 	console.info(`Backend server is running on port ${chalk.yellowBright(port)}`)
+	
 }

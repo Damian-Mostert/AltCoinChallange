@@ -1,26 +1,14 @@
-import mariadb from "mariadb";
+import Knex from "knex";
 
-const pool = mariadb.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
-  connectionLimit: 5,
+const knexDb = Knex({
+	client: "mysql2",
+	connection: {
+		host: process.env.DB_HOST,
+		user: process.env.DB_USER,
+		password: process.env.DB_PASSWORD,
+		database: process.env.DB_NAME,
+	},
+	pool: { min: 0, max: 5 },
 });
 
-async function query(sql, values) {
-  let conn;
-
-  try {
-    conn = await pool.getConnection();
-    const result = await conn.query(sql, values);
-    return result;
-  } catch (error) {
-    console.error("Database query error:", error);
-    return null;
-  } finally {
-    if (conn) conn.release();
-  }
-}
-
-export default query;
+export default knexDb;
