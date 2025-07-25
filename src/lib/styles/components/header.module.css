@@ -1,0 +1,6 @@
+.container{
+    padding: 1rem;
+    background: var(--bg-fg);
+    border-bottom:1px solid var(--accent);
+    display: flex;
+}

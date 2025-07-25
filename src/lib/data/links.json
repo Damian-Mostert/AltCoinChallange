@@ -1,0 +1,30 @@
+{
+	"header":[
+		{
+			"label":"Home",
+			"href":"/"
+		},
+		{
+			"label":"Privacy policy",
+			"href":"/privacy-policy"
+		},
+		{
+			"label":"Terms and conditions",
+			"href":"/terms-and-conditions"
+		}
+	],
+	"footer":[
+		{
+			"label":"Home",
+			"href":"/"
+		},
+		{
+			"label":"Privacy policy",
+			"href":"/privacy-policy"
+		},
+		{
+			"label":"Terms and conditions",
+			"href":"/terms-and-conditions"
+		}
+	]
+}

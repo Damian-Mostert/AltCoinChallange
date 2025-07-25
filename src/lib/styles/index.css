@@ -1,8 +1,26 @@
 :root{
-	--bg:black;
-	--bg-fg:#111;
-	--fg:#eee;
-	--accent:#cae962
+	--bg:rgb(255, 255, 255);
+	--bg-fg:#e7e7e7;
+	--fg:#2e2e2e;
+	--accent:#dcdcdc;
+}
+
+body{
+	background: var(--bg);
+	color: var(--fg);
+}
+div[id="root"]{
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	width: 100vw;
+	overflow: auto;
+}
+
+main{
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 /*Backgrounds*/
@@ -25,7 +43,7 @@
 
 /*Foregrounds*/
 .fg-bg{
-    color: var(--bg) !important;
+	color: var(--bg) !important;
 }
 
 .fg-fg{
@@ -43,21 +61,55 @@
 /*Borders*/
 .border-bg{
 	border-color: var(--bg) !important;
-    --bs-border-color: var(--bg) !important;
+		--bs-border-color: var(--bg) !important;
 }
 
 .border-fg{
 	border-color: var(--fg) !important;
-    --bs-border-color: var(--fg) !important;
+		--bs-border-color: var(--fg) !important;
 }
 
 .border-bg-fg{
 	border-color: var(--bg-fg) !important;
-    --bs-border-color: var(--bg-fg) !important;
+		--bs-border-color: var(--bg-fg) !important;
 }
 
 .border-accent{
 	border-color: var(--accent) !important;
-    --bs-border-color: var(--accent) !important;
+		--bs-border-color: var(--accent) !important;
 }
 
+/*css loader*/
+.loader {
+  height: 15px;
+  aspect-ratio: 5;
+  display: flex;
+  justify-content: space-between;
+  --_g: no-repeat radial-gradient(farthest-side,#000 95%,#0000);
+  background: var(--_g),var(--_g);
+  background-size: 20% 100%;
+  animation: l42-0 1s infinite;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  height: inherit;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #000;
+  animation: l42-1 1s infinite; 
+}
+.loader:after {
+  --s:-1,-1;
+}
+@keyframes l42-0 {
+  0%,
+  60%  {background-position: calc(1*100%/3) 0, calc(2*100%/3) 0}
+  100% {background-position: calc(0*100%/3) 0, calc(3*100%/3) 0}
+}
+@keyframes l42-1 {
+  0%   {transform: scale(var(--s,1)) translate(0           ,0)}
+  33%  {transform: scale(var(--s,1)) translate(0           ,130%)}
+  66%  {transform: scale(var(--s,1)) translate(calc(400%/3),130%)}
+  100% {transform: scale(var(--s,1)) translate(calc(400%/3),0)}
+}
