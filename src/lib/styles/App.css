@@ -1,0 +1,10 @@
+body{
+    background: var(--bg);
+    color: var(--fg);
+}
+div[id="root"]{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}

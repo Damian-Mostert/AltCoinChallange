@@ -1,0 +1,63 @@
+:root{
+	--bg:black;
+	--bg-fg:#111;
+	--fg:#eee;
+	--accent:#cae962
+}
+
+/*Backgrounds*/
+.bg-bg{
+	background: var(--bg) !important;
+}
+
+.bg-fg{
+	background: var(--fg) !important;
+}
+
+.bg-bg-fg{
+	background: var(--bg-fg) !important;
+}
+
+.bg-accent{
+	background: var(--accent) !important;
+}
+
+
+/*Foregrounds*/
+.fg-bg{
+    color: var(--bg) !important;
+}
+
+.fg-fg{
+	color: var(--fg) !important;
+}
+
+.fg-bg-fg{
+	color: var(--bg-fg) !important;
+}
+
+.fg-accent{
+	color: var(--accent) !important;
+}
+
+/*Borders*/
+.border-bg{
+	border-color: var(--bg) !important;
+    --bs-border-color: var(--bg) !important;
+}
+
+.border-fg{
+	border-color: var(--fg) !important;
+    --bs-border-color: var(--fg) !important;
+}
+
+.border-bg-fg{
+	border-color: var(--bg-fg) !important;
+    --bs-border-color: var(--bg-fg) !important;
+}
+
+.border-accent{
+	border-color: var(--accent) !important;
+    --bs-border-color: var(--accent) !important;
+}
+

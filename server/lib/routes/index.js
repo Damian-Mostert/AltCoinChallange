@@ -1,20 +1,10 @@
-import { Router } from "express";
-const routes = Router();
+import { Router } from "express"
+import getAllCurrencies from "./callbacks/get-all-currencies.js"
+import getCurrencyDetails from "./callbacks/get-currency-details.js"
 
-import getAllCurrency from "./callback/get-all-currency.js";
-import getCurrencyDetails from "./callback/get-currency-details.js";
+const router = Router()
 
-//POST ROUTES
-const post_routes = {
-    "/api/v1/get-currency-details":getCurrencyDetails,
-    "/api/v1/get-all-currency":getAllCurrency
-};
+router.post("/api/get-currency-detail",getCurrencyDetails)
+router.get("/api/get-all-currencies",getAllCurrencies)
 
-//GET ROUTES
-const get_routes = {
-};
-
-
-Object.keys(post_routes).map(r=>routes.post(r,post_routes[r]));
-Object.keys(get_routes).map(r=>routes.get(r,get_routes[r]));
-export default routes;
+export default router
