@@ -3,7 +3,7 @@
 	--bg-fg:#ffffff;
 	--fg:#2e2e2e;
 	--accent:#dcdcdc;
-	--links:#ed1c1c;
+	--primary:#ed1c1c;
 }
 
 body{
@@ -13,16 +13,12 @@ body{
 div[id="root"]{
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
-	width: 100vw;
 	overflow: auto;
 }
 
 main{
 	min-height: 100vh;
 	height: auto;
-	display: flex;
-	flex-direction: column;
 }
 
 input,select{
@@ -33,7 +29,7 @@ input,select{
 }
 
 a{
-	color: var(--links) !important;
+	color: var(--primary) !important;
 	text-decoration: none;
 }
 

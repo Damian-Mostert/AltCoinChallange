@@ -1,7 +1,7 @@
 .button{
     border: none;
     border-radius: 0.25rem;
-    background: var(--links);
+    background: var(--primary);
     color:var(--bg);
     padding: 0.5rem 1rem;
 }

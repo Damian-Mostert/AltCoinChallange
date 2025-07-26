@@ -1,24 +1,27 @@
 import { Chart } from 'react-google-charts';
 import chartTypes from "../data/chart-types.json";
 import type { ChartProps } from '../types/chart';
+import { useWindow } from '../context/window';
 
 export default function CryptoStatsChart({ data,chartType,setChartType }:ChartProps){
+    const {width} = useWindow();
+    const isMobile = width < 1000;
 
 	return (
 		<div className='w-100 h-100 d-flex flex-column'>
-            <div className='d-flex w-100'>
+            <div className={`d-flex w-100 ${isMobile ? "flex-column-reverse gap-2":""}`}>
                 <h2>{data.name}</h2>
-                <div className='w-100 d-flex justify-content-end align-items-center gap-2'>
+                <div className={`w-100 d-flex ${isMobile?"":"justify-content-end"} align-items-center gap-2`}>
                     <b>Display</b>
                     <select value={chartType} onChange={(ev)=>setChartType(ev.target.value)}>
                         {chartTypes.map(val=>(<option value={val} key={val}>{val}</option>))}
                     </select>
                 </div>
             </div>
-            
+            <h4>Quotes</h4>
             <div className='w-100 d-flex flex-column gap-2 pb-2'>
                 {Object.keys(data.quote).map(key=>{
-                    return <div key={key}>
+                    return <div className='bg-bg border-accent rounded-1 p-1' key={key}>
                         <b>{key}</b>
                         <div>
                         Market cap: <b>{Math.round(data.quote[key].market_cap)} {key}</b>

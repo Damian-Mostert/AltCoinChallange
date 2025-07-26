@@ -9,6 +9,7 @@ import PrivacyPolicy from './lib/pages/privacy-policy.tsx'
 import Home from './lib/pages/home.tsx'
 import NotFound from './lib/pages/not-found.tsx'
 import Layout from './layout.tsx'
+import WindowSizeProvider from './lib/context/window.tsx';
 
 const routerMap:any = {
 	"*":NotFound,
@@ -18,12 +19,14 @@ const routerMap:any = {
 };
 
 createRoot(document.getElementById('root')!).render(<StrictMode>
-	<BrowserRouter>
-	<Routes>
-		{Object.keys(routerMap).map((key)=>{
-			const Component = routerMap[key];
-			return <Route key={key} path={key} element={<Layout><Component/></Layout>}/>
-		})}
-	</Routes>
-	</BrowserRouter>
+	<WindowSizeProvider>
+		<BrowserRouter>
+		<Routes>
+			{Object.keys(routerMap).map((key)=>{
+				const Component = routerMap[key];
+				return <Route key={key} path={key} element={<Layout><Component/></Layout>}/>
+			})}
+		</Routes>
+		</BrowserRouter>
+	</WindowSizeProvider>
 </StrictMode>)

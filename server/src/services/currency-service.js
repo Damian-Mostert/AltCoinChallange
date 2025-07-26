@@ -1,7 +1,7 @@
 import { CURRENCY_SERVICE } from "../config/end-points.js";
 import axios from "../lib/axios/cmc.js";
 const currencyService = {
-    async getAll(start=1,limit = 1){
+    async getAll(start=1,limit = 15){
         const res = await axios.get(CURRENCY_SERVICE.GET_ALL,{
             params:{
                 start,
