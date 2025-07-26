@@ -34,9 +34,13 @@ export default async function getAllCurrencies(request,response,next){
                     data:currency
                 }).onConflict('real_id').merge(['data'])
                 
+            let data = await knexDb.select("*").from("currencies").paginate({
+                perPage:per_page,
+                currentPage:page
+            });
             response.json({
-                currencies:res.data,
-                pagination:{ perPage:per_page, currentPage: page}
+                currencies:data.data.map(c=>(JSON.parse(c.data))),
+                pagination:data.pagination
             })
         }
     }catch(error){
