@@ -1,6 +1,6 @@
 :root{
 	--bg:rgb(103, 89, 63);
-	--bg-fg:#46464680;
+	--bg-fg:#464646;
 	--fg:#ffffff;
 	--accent:#43af73;
 	--primary:#5cbfb5;
@@ -157,3 +157,4 @@ a{
 .hamburger-inner,.hamburger-inner::before,.hamburger-inner::after{
 	background-color: var(--primary) !important;
 }
+

@@ -38,13 +38,13 @@ export default function CryptoStatsChart({ data, chartType, setChartType }:Chart
 				height="100%"
 				data={[
 					['Metric', 'Value'],
-					['Price (USD)',data.quote[Object.keys(data.quote)[0]].price],
-					['% Change 90d',data.quote[Object.keys(data.quote)[0]].percent_change_60d],
-					['% Change 60d',data.quote[Object.keys(data.quote)[0]].percent_change_60d],
-					['% Change 30d',data.quote[Object.keys(data.quote)[0]].percent_change_30d],
-					['% Change 7d',data.quote[Object.keys(data.quote)[0]].percent_change_7d],
-					['% Change 24h',data.quote[Object.keys(data.quote)[0]].percent_change_24h],
-					['% Change 1h',data.quote[Object.keys(data.quote)[0]].percent_change_1h],
+					[`Price (${Object.keys(data.quote)[0]})`,data.quote[Object.keys(data.quote)[0]].price],
+					['% 90 days',data.quote[Object.keys(data.quote)[0]].percent_change_60d],
+					['% 60 days',data.quote[Object.keys(data.quote)[0]].percent_change_60d],
+					['% 30 days',data.quote[Object.keys(data.quote)[0]].percent_change_30d],
+					['% 7 days',data.quote[Object.keys(data.quote)[0]].percent_change_7d],
+					['% 24 days',data.quote[Object.keys(data.quote)[0]].percent_change_24h],
+					['% 1 days',data.quote[Object.keys(data.quote)[0]].percent_change_1h],
 				]}
                 className='border border-accent rounded-1 overflow-hidden p-1 bg-white'
 				options={{

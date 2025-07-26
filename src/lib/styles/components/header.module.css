@@ -3,17 +3,41 @@
     background: var(--bg-fg);
     border-bottom:1px solid var(--accent);
     display: flex;
-    position: sticky;
+    position:fixed;
     top: 0px;
     left: 0px;
-    z-index: 999;
     align-items: center;
-    position: relative;
-    z-index: 10;
+    width: 100%;
+    z-index: 999;
+}
+
+.placeHolder{
+    height: 120px;
 }
 
 @media screen and (max-width:1000px) {
     .container{
         padding: 1rem;
     }
+}
+
+@keyframes mobileMenuIn {
+	from{
+		max-width: 0vw;
+	}
+	to{
+		max-width: 100vw;
+	}
+}
+
+.mobileMenuIn{
+	animation: mobileMenuIn 0.5s forwards;
+	position: fixed;
+	top: 93px;
+	right: 0px;
+	width: 100vw;
+	height: calc(100vh - 92px);
+	background: var(--bg-fg);
+    display: flex;
+    flex-direction: column;
 }
