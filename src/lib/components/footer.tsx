@@ -10,7 +10,7 @@ export default function Footer(){
 	return <footer className={styles.container}>
 		{!resizing && <>
             <div className={`w-100 ${isMobile?"d-flex justify-content-center pb-4":""}`}>
-                <img width={200} src="/logo-placeholder.png"/>
+                <Link to={'/'}><img width={200} src="/logo-placeholder.png"/></Link>
             </div>
     		<div className={`${isMobile?"w-100 text-center":"w-25"} d-flex flex-column justify-content-between gap-4`}>
                 {links.footer.map(({label,href},key)=>(<Link to={href} key={key}>

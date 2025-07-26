@@ -10,7 +10,7 @@ export default function Header(){
     return <header className={styles.container}>
         {!resizing && <>
             <div className="w-100">
-                <img width={100} src="/logo-placeholder.png"/>
+                <Link to={'/'}><img width={100} src="/logo-placeholder.png"/></Link>
             </div>
             {isMobile?<></>:<div className="w-50 d-flex justify-content-between">
                 {links.header.map(({label,href},key)=>(<Link to={href} key={key}>

@@ -1,9 +1,11 @@
 :root{
-	--bg:rgb(232, 232, 232);
-	--bg-fg:#ffffff;
+	--bg:rgb(242, 214, 252);
+	--bg-fg:#ffffff80;
 	--fg:#2e2e2e;
-	--accent:#dcdcdc;
-	--primary:#ed1c1c;
+	--accent:#5fffa7;
+	--primary:#ed8f1c;
+	--primary-fg:white;
+	--blob:#6bc3e9;
 }
 
 body{
@@ -19,6 +21,9 @@ div[id="root"]{
 main{
 	min-height: 100vh;
 	height: auto;
+	overflow: hidden;
+	position: relative;
+	z-index: 10;
 }
 
 input,select{
@@ -31,6 +36,7 @@ input,select{
 a{
 	color: var(--primary) !important;
 	text-decoration: none;
+	font-weight: bold;
 }
 
 * {
@@ -131,4 +137,17 @@ a{
   33%  {transform: scale(var(--s,1)) translate(0           ,130%)}
   66%  {transform: scale(var(--s,1)) translate(calc(400%/3),130%)}
   100% {transform: scale(var(--s,1)) translate(calc(400%/3),0)}
+}
+
+/*BG blur (self made efx)*/
+.blur-blob{
+  width: 2400px;
+  height: 2400px;
+  background: radial-gradient(circle, var(--blob) 0%, rgba(255, 165, 0, 0) 70%);
+  filter: blur(90px);
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: -5;
+  scale: 2;
+  border-Radius: 50%;
 }

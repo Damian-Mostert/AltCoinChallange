@@ -10,6 +10,7 @@ import Home from './lib/pages/home.tsx'
 import NotFound from './lib/pages/not-found.tsx'
 import Layout from './layout.tsx'
 import WindowSizeProvider from './lib/context/window.tsx';
+import BlurBehindPointer from './lib/components/blurBehindPointer.tsx';
 
 const routerMap:any = {
 	"*":NotFound,
@@ -20,6 +21,7 @@ const routerMap:any = {
 
 createRoot(document.getElementById('root')!).render(<StrictMode>
 	<WindowSizeProvider>
+		<BlurBehindPointer/>
 		<BrowserRouter>
 		<Routes>
 			{Object.keys(routerMap).map((key)=>{
