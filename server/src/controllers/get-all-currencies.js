@@ -15,16 +15,17 @@ export default async function getAllCurrencies(request,response,next){
         }else{
             console.info(chalk.bgBlueBright(chalk.yellowBright("Setting cache")))
             const res = await currencyService.getAll();
-            global.redisClient.set('currencies','has_been_fetched',{ex:60})
+            global.redisClient.set('currencies','has_been_fetched',{EX:Number(process.env.CACHE_DURATION)})
 
             for(let currency of res.data)
                 await knexDb.table("currencies").insert({
                     real_id:currency.id,
                     data:currency
-                }).onConflict('real_id').merge(['data'])
+                }).onConflict('real_id').merge(['data']);
                 
+            let data = await knexDb.select("*").from("currencies");            
             response.json({
-                currencies:res.data.slice(0, 10)
+                currencies:[...data]
             })
         }
     }catch(error){

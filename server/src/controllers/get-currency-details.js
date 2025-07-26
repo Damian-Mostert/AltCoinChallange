@@ -8,15 +8,16 @@ export default async function getAllCurrencies(request,response,next){
         if(!currency)throw "Missing currency slug"
         const cached = await global.redisClient.get(`currency-${currency}`)
 
+        console.log(await global.redisClient.ttl(`currency-${currency}`))
         const handleCache = async ()=>{
             try{
                 console.info(chalk.bgBlueBright(chalk.yellowBright("Setting cache")))
-                global.redisClient.set(`currency-${currency}`,'has_been_fetched',{ex:60})
-                const {data} = await CurrencyService.getDetails(request.body.currency)
+                await global.redisClient.set(`currency-${currency}`,'has_been_fetched',{EX:Number(process.env.CACHE_DURATION)})
                 await knexDb.table("currency_data").insert({
                     for_slug:currency,
                     data
                 }).onConflict('for_slug').merge(['data'])
+                const {data} = await CurrencyService.getDetails(request.body.currency)
                 response.json({
                     data
                 })
@@ -42,7 +43,7 @@ export default async function getAllCurrencies(request,response,next){
                     data:JSON.parse(data)
                 })
             }else if(failedCacheCheck)
-             throw "Failed to set cache!"
+             throw "Failed to get cache after a failed API call!"
             else await handleCache()
         }
 

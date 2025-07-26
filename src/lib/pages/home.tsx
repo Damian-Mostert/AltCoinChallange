@@ -11,7 +11,11 @@ export default function Home() {
 	const [currencies,setCurrencies] = useState<Currency[]|null>(null);
 	const [loadingCurrencies,setLoadingCurrencies] = useState<boolean>(true);
 	const [loadingData,setLoadingData] = useState<boolean>(true);
-	const [chartType,setChartType] = useState<any>(chartTypes[0]);
+	const [chartType,setChartType] = useState<any>(localStorage.getItem("chart_type")??chartTypes[0]);
+
+    useEffect(()=>{
+        localStorage.setItem("chart_type",chartType);
+    },[chartType])
 
 	useEffect(()=>{
 		setLoadingCurrencies(true);

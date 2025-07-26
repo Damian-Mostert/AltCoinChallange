@@ -3,4 +3,5 @@
     background: var(--bg-fg);
     border-top:1px solid var(--accent);
     display: flex;
+    align-items: center;
 }
