@@ -3,6 +3,7 @@
 	--bg-fg:#ffffff;
 	--fg:#2e2e2e;
 	--accent:#dcdcdc;
+	--links:#ed1c1c;
 }
 
 body{
@@ -19,6 +20,7 @@ div[id="root"]{
 
 main{
 	min-height: 100vh;
+	height: auto;
 	display: flex;
 	flex-direction: column;
 }
@@ -28,6 +30,11 @@ input,select{
 	background-color: var(--bg-fg);
 	border-radius: 0.25rem;
 	padding: 0.5rem;
+}
+
+a{
+	color: var(--links) !important;
+	text-decoration: none;
 }
 
 * {

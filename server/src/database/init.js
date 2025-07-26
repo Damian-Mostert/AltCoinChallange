@@ -1,4 +1,5 @@
 import Knex from "knex";
+import { attachPaginate } from "knex-paginate";
 
 const knexDb = Knex({
 	client: "mysql2",
@@ -8,7 +9,8 @@ const knexDb = Knex({
 		password: process.env.DB_PASSWORD,
 		database: process.env.DB_NAME,
 	},
-	pool: { min: 0, max: 5 },
 })
+
+attachPaginate()
 
 export default knexDb

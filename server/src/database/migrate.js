@@ -28,7 +28,7 @@ async function setupDatabase() {
 			pool: { min: 0, max: 5 },
 		})
 
-		const existsCurrencies = await knexDb.schema.hasTable("currencies");
+		const existsCurrencies = await knexDb.schema.hasTable("currencies")
 		if (!existsCurrencies) {
 			await knexDb.schema.createTable("currencies", (table) => {
 				table.increments("id").primary()

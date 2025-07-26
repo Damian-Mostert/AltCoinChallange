@@ -1,4 +1,4 @@
-import styles from "@/styles/button.module.css";
+import styles from "../styles/components/button.module.css";
 import type { ButtonProps } from "../types/button";
 import { Link } from "react-router";
 

@@ -1,5 +1,9 @@
 .button{
-
+    border: none;
+    border-radius: 0.25rem;
+    background: var(--links);
+    color:var(--bg);
+    padding: 0.5rem 1rem;
 }
 
 .variant-default{

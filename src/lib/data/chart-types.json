@@ -1,11 +1,11 @@
 [
+    "Bar",
     "AreaChart",
     "BarChart",
     "ColumnChart",
     "Gauge",
     "LineChart",
     "Line",
-    "Bar",
     "ScatterChart",
     "Scatter",
     "SteppedAreaChart"

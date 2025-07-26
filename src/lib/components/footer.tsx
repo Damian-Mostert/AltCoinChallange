@@ -7,7 +7,7 @@ export default function Footer(){
 		<div className="w-100">
             <img width={200} src="/logo-placeholder.png"/>
         </div>
-		<div className="w-25 d-flex flex-column justify-content-between">
+		<div className="w-25 d-flex flex-column justify-content-between gap-4">
 			{links.footer.map(({label,href},key)=>(<Link to={href} key={key}>
 				{label}
 			</Link>))}
