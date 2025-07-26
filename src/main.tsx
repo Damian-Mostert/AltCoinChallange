@@ -11,6 +11,7 @@ import NotFound from './lib/pages/not-found.tsx'
 import Layout from './layout.tsx'
 import WindowSizeProvider from './lib/context/window.tsx';
 import BlurBehindPointer from './lib/components/blurBehindPointer.tsx';
+import "hamburgers/_sass/hamburgers/hamburgers.scss";
 
 const routerMap:any = {
 	"*":NotFound,

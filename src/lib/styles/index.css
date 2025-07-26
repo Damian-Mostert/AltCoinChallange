@@ -152,3 +152,8 @@ a{
   scale: 2;
   border-Radius: 50%;
 }
+
+
+.hamburger-inner,.hamburger-inner::before,.hamburger-inner::after{
+	background-color: var(--primary) !important;
+}

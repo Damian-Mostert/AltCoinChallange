@@ -3,7 +3,7 @@ import chartTypes from "../data/chart-types.json";
 import type { ChartProps } from '../types/chart';
 import { useWindow } from '../context/window';
 
-export default function CryptoStatsChart({ data,chartType,setChartType }:ChartProps){
+export default function CryptoStatsChart({ data, chartType, setChartType }:ChartProps){
     const {width} = useWindow();
     const isMobile = width < 1000;
 
@@ -56,7 +56,7 @@ export default function CryptoStatsChart({ data,chartType,setChartType }:ChartPr
 					vAxis: {
 						title: 'Metric',
 					},
-					colors: ['#ff4343'],
+					colors: ['#f6b55f'],
 				}}
 				/>
 		</div>

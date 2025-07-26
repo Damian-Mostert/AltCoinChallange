@@ -13,7 +13,9 @@ export default function Footer(){
                 <Link to={'/'}><img width={200} src="/logo-placeholder.png"/></Link>
             </div>
     		<div className={`${isMobile?"w-100 text-center":"w-25"} d-flex flex-column justify-content-between gap-4`}>
-                {links.footer.map(({label,href},key)=>(<Link to={href} key={key}>
+                {links.footer.map(({label,href},key)=>(<Link onClick={()=>{
+                    window.scrollTo({top:0,behavior:"smooth"})
+                }} to={href} key={key}>
                     {label}
                 </Link>))}
 			</div>
